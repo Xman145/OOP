@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class heapsort
 {
-    static void printArray(int arr[])
+    private static void printArray(int arr[])
     {
         int n = arr.length;
         for (int i=0; i<n; ++i)
@@ -39,7 +39,7 @@ public class heapsort
             heapify(arr,0,i);
         }
     }
-    public static void heapify(int[] arr, int i, int n) {
+    private static void heapify(int[] arr, int i, int n) {
         int leftchild = i * 2 +1;
         int rightchild = i* 2 + 2;
         int largest = i;
