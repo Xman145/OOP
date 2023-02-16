@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.Xman145.PrimeNumbersTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-14T12:06:16" hostname="LAPTOP-KO01T9TO" time="0.035">
+  <properties/>
+  <testcase name="simpleTest()" classname="io.github.Xman145.PrimeNumbersTest" time="0.032"/>
+  <testcase name="bigTest()" classname="io.github.Xman145.PrimeNumbersTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
