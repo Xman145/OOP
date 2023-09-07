@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 public class SnakeApp extends Application {
 
     static final int WIDTH = 800;
@@ -35,7 +36,7 @@ public class SnakeApp extends Application {
     static int foodX = 8;
     static int foodY = 8;
 
-    static  int goal = 10;
+    static  int goal = 5;
 
     static int foodcolor = 0;
 
@@ -45,13 +46,15 @@ public class SnakeApp extends Application {
 
     static boolean gameWon = false;
 
+
     static Dir direction = Dir.left;
 
     public enum Dir {
         right,left,up,down
     }
 
-
+    public Stage primaryStage;
+    private GameField gameField;
 
     @Override
 
@@ -60,6 +63,14 @@ public class SnakeApp extends Application {
         Canvas canvas = new Canvas(WIDTH, HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         root.getChildren().add(canvas);
+
+        this.primaryStage = primaryStage;
+        this.gameField = new GameField(primaryStage,this);
+        Scene scene = new Scene(root,WIDTH, HEIGHT);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Snake");
+        primaryStage.setWidth(WIDTH);
+        primaryStage.setHeight(HEIGHT);
         new AnimationTimer() {
             long lastTick = 0;
 
@@ -77,11 +88,8 @@ public class SnakeApp extends Application {
             }
 
         }.start();
-        Scene scene = new Scene(root,WIDTH, HEIGHT);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Snake");
-        primaryStage.setWidth(WIDTH);
-        primaryStage.setHeight(HEIGHT);
+
+
 
 
 
@@ -109,8 +117,8 @@ public class SnakeApp extends Application {
     // food
     public static void spawnFood() {
         start: while (true) {
-            foodX = rand.nextInt(32);
-            foodY = rand.nextInt(32);
+            foodX = rand.nextInt(30);
+            foodY = rand.nextInt(30);
 
             for (Point c : snake) {
                 if (c.x == foodX && c.y == foodY) {
@@ -183,6 +191,7 @@ public class SnakeApp extends Application {
         if ((speed-5) >= goal){
             gameWon = true;
         }
+
         // fill
         // background
         gc.setFill(Color.BLACK);
